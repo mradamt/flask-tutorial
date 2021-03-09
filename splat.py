@@ -10,7 +10,7 @@ def index():
 @app.route('/monkeys')
 @app.route('/monkeys/<name>')
 def get_monkeys(name=None):
-    return render_template('monkeys.html', name=name)
+    return render_template('monkeys.html', input=name)
 
 @app.route('/rando/<panda>')
 def rando_panda(panda):
