@@ -14,3 +14,11 @@ def get_monkeys():
 @app.route('/rando/<panda>')
 def rando_panda(panda):
   return f'The URL you entered, {escape(panda)}, is silly. Do better.'
+
+@app.route('/projects/')
+def projects():
+    return 'The project page. Accessing this URL without the trailing slash will redirect to "/projects/" WITH a trailing slash.'
+
+@app.route('/about')
+def about():
+    return 'The about page. Accessing this URL with a trailing slash will produce a 404.'
