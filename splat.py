@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -14,6 +14,11 @@ def get_monkeys():
 @app.route('/rando/<panda>')
 def rando_panda(panda):
   return f'The URL you entered, {escape(panda)}, is silly. Do better.'
+
+with app.test_request_context():
+  print(url_for('index'))
+  print(url_for('get_monkeys'))
+  print(url_for('rando_panda', panda='wonkysocks'))
 
 @app.route('/projects/')
 def projects():
