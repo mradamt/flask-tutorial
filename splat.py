@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request, render_template
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -8,8 +8,9 @@ def index():
     return 'Your face is an index page'
 
 @app.route('/monkeys')
-def get_monkeys():
-    return 'Arr here be monkeys'
+@app.route('/monkeys/<name>')
+def get_monkeys(name=None):
+    return render_template('monkeys.html', name=name)
 
 @app.route('/rando/<panda>')
 def rando_panda(panda):
