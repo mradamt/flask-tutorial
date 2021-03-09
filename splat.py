@@ -27,3 +27,10 @@ def projects():
 @app.route('/about')
 def about():
     return 'The about page. Accessing this URL with a trailing slash will produce a 404.'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return 'Thanks for the data'
+    else:
+        return 'Fresh login form for you to fill out'
